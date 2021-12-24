@@ -16,7 +16,7 @@ const STORAGE_KEY = 'videoplayer-current-time';
 player.on('timeupdate', throttle(throttled, 1000));
 
 function throttled(data) {
-  console.log('Percentage watched: ' + data.seconds);
+  // console.log('Percentage watched: ' + data.seconds);
   localStorage.setItem(STORAGE_KEY, data.seconds);
 }
 
@@ -25,7 +25,7 @@ player
   .then(function (seconds) {})
   .catch(function (error) {
     switch (error.name) {
-      case 'RangeError':
+      case STORAGE_KEY:
         break;
 
       default:
